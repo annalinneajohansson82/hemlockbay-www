@@ -4,7 +4,7 @@ Single-page website for [hemlockbay.se](https://hemlockbay.se). "Cabinet of Curi
 
 ## Deploy
 
-One file. Drop `index-curiosity.html` and the `Creature lore/`, `images/`, and font `.ttf` files onto any static host.
+One file. Drop `index-curiosity.html` and the `images/creatures/`, `images/`, and font `.ttf` files onto any static host.
 
 ## Structure
 
@@ -15,7 +15,7 @@ www/
 ├── RoyalSignage-Rg.ttf           # ornate accents, latin names
 ├── Hanley-BlockDisplay.ttf       # section headers
 ├── Hanley-Script.ttf             # marginalia (italic override via CSS)
-├── Creature lore/                # anatomical engraving plates
+├── images/creatures/                # anatomical engraving plates
 │   ├── engraving_cervus_venator.jpg
 │   ├── engraving_cervus_venator_2.jpg
 │   ├── engraving_ardera_testis.jpg
