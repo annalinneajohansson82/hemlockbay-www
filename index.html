@@ -99,10 +99,16 @@ body::after{
 }
 
 /* ── FADE-IN ── */
+@media(prefers-reduced-motion:no-preference){
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
+}
+@media(prefers-reduced-motion:reduce){
+.fade-in{opacity:1;transform:none}
+}
 
 /* ── SCROLL INDICATOR ── */
+@media(prefers-reduced-motion:no-preference){
 .scroll-hint{
   position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
   font-family:var(--font-body);
@@ -112,6 +118,7 @@ body::after{
   color:var(--gold-dim);
   animation:pulse 2.5s ease-in-out infinite;
   text-align:center;
+}
 }
 .scroll-arrow{display:block;font-size:18px;margin-top:6px}
 @keyframes pulse{
@@ -220,6 +227,7 @@ body::after{
 }
 .drawer-content.mt-32{margin-top:32px}
 .drawer-plate{position:relative}
+.drawer-plate .img-btn{display:block;padding:0;border:none;background:none;cursor:pointer;width:100%;line-height:0}
 .drawer-plate .plate-img{
   width:100%;
   height:auto;
@@ -333,6 +341,10 @@ body::after{
   position:absolute;inset:0;
   background:radial-gradient(ellipse at center,var(--burgundy-light) 0%,var(--burgundy) 60%,var(--black) 100%);
   opacity:.85;
+}
+.specimen-card .frame-inner .img-btn{
+  position:absolute;inset:0;
+  padding:0;border:none;background:none;cursor:pointer;display:block;
 }
 .specimen-card .specimen-img{
   position:absolute;inset:0;
@@ -566,13 +578,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .footer-links{gap:20px}
 }
 </style>
+<noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+
+<main>
 
 <!-- ════════════════════════════════════════════ -->
 <!-- HERO — THE CABINET DOOR                     -->
 <!-- ════════════════════════════════════════════ -->
-<section class="hero">
+<section class="hero" aria-label="Hero banner">
   <div class="hero-curio fade-in">✦ Cabinet of Curiosities ✦</div>
   <h1 class="hero-title fade-in">Hemlock <span class="gold">Bay</span></h1>
   <div class="hero-tagline fade-in">Occultum Investigamus</div>
@@ -583,7 +598,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- CURATOR'S NOTE                              -->
 <!-- ════════════════════════════════════════════ -->
-<section class="curator-section">
+<section class="curator-section" aria-label="Curator's note">
   <div class="container">
     <div class="curator-note fade-in">
       <div class="ornament-head">❧</div>
@@ -606,21 +621,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- DRAWER I — HUNTER STAG                      -->
 <!-- ════════════════════════════════════════════ -->
-<section class="cabinet-drawer" id="hunter-stag">
+<section class="cabinet-drawer" id="hunter-stag" aria-labelledby="hunter-stag-heading">
   <div class="container pos-rel">
     <span class="marginalia left">Cervidae aberrant</span>
 
     <div class="drawer-number label-upper fade-in">Drawer I</div>
     <div class="drawer-header section-header fade-in">
-      <h2 class="section-title heading-block">Hunter <span class="gold">Stag</span></h2>
+      <h2 class="section-title heading-block" id="hunter-stag-heading">Hunter <span class="gold">Stag</span></h2>
       <div class="latin-name">Cervus venator</div>
       <div class="catalog-ref">Catalogue No. HBICS–C–021</div>
     </div>
 
     <div class="drawer-content fade-in">
       <div class="drawer-plate">
+        <button type="button" class="img-btn" aria-label="TAB. CII. — Cervus venator, skeletal view">
         <img class="plate-img" src="images/creatures/engraving_cervus_venator.jpg" alt="Cervus venator — skeletal view, TAB. CII" loading="lazy"
              data-lightbox="hunter-stag" data-caption="TAB. CII. — Cervus venator, skeletal view">
+      </button>
         <div class="plate-label">TAB. CII. — Cervus venator, skeletal view</div>
       </div>
       <div class="field-notes">
@@ -657,8 +674,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         </div>
       </div>
       <div class="drawer-plate">
+        <button type="button" class="img-btn" aria-label="TAB. CIII. — Cervus venator, alternate aspect">
         <img class="plate-img" src="images/creatures/engraving_cervus_venator_2.jpg" alt="Cervus venator — alternate skeletal view, TAB. CIII" loading="lazy"
              data-lightbox="hunter-stag" data-caption="TAB. CIII. — Cervus venator, alternate aspect">
+      </button>
         <div class="plate-label">TAB. CIII. — Cervus venator, alternate aspect</div>
       </div>
     </div>
@@ -672,13 +691,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- DRAWER II — WITNESS HERON                   -->
 <!-- ════════════════════════════════════════════ -->
-<section class="cabinet-drawer" id="witness-heron">
+<section class="cabinet-drawer" id="witness-heron" aria-labelledby="witness-heron-heading">
   <div class="container pos-rel">
     <span class="marginalia left">Ardeidae prov.</span>
 
     <div class="drawer-number label-upper fade-in">Drawer II</div>
     <div class="drawer-header section-header fade-in">
-      <h2 class="section-title heading-block">Witness <span class="gold">Heron</span></h2>
+      <h2 class="section-title heading-block" id="witness-heron-heading">Witness <span class="gold">Heron</span></h2>
       <div class="latin-name">Ardea testis <span class="subtle">— The Devil's Heron</span></div>
       <div class="catalog-ref">Catalogue No. HBICS–A–017</div>
     </div>
@@ -704,8 +723,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         </div>
       </div>
       <div class="drawer-plate">
+        <button type="button" class="img-btn" aria-label="TAB. CX. — Ardea testis, skeletal plate">
         <img class="plate-img" src="images/creatures/engraving_ardera_testis.jpg" alt="Ardea testis — skeletal plate, TAB. CX" loading="lazy"
              data-lightbox="witness-heron" data-caption="TAB. CX. — Ardea testis, skeletal plate">
+      </button>
         <div class="plate-label">TAB. CX. — Ardea testis, skeletal plate</div>
       </div>
     </div>
@@ -719,21 +740,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- DRAWER III — COMMON WEREWOLF                -->
 <!-- ════════════════════════════════════════════ -->
-<section class="cabinet-drawer" id="werewolf">
+<section class="cabinet-drawer" id="werewolf" aria-labelledby="werewolf-heading">
   <div class="container pos-rel">
     <span class="marginalia left">Hominidae aberr.</span>
 
     <div class="drawer-number label-upper fade-in">Drawer III</div>
     <div class="drawer-header section-header fade-in">
-      <h2 class="section-title heading-block">Common <span class="gold">Werewolf</span></h2>
+      <h2 class="section-title heading-block" id="werewolf-heading">Common <span class="gold">Werewolf</span></h2>
       <div class="latin-name">Homo lycanthropus</div>
       <div class="catalog-ref">Catalogue No. HBICS–H–024</div>
     </div>
 
     <div class="drawer-content fade-in">
       <div class="drawer-plate">
+        <button type="button" class="img-btn" aria-label="TAB. III. — Homo lycanthropus, skeletal plate">
         <img class="plate-img" src="images/creatures/engraving_homo_lycanthropus.jpg" alt="Homo lycanthropus — skeletal plate, TAB. III" loading="lazy"
              data-lightbox="werewolf" data-caption="TAB. III. — Homo lycanthropus, skeletal plate">
+      </button>
         <div class="plate-label">TAB. III. — Homo lycanthropus, skeletal plate</div>
       </div>
       <div class="field-notes">
@@ -765,7 +788,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- SPECIMEN CABINET — INSECTS & ARACHNIDS      -->
 <!-- ════════════════════════════════════════════ -->
-<section class="specimen-section" id="specimens">
+<section class="specimen-section" id="specimens" aria-label="Specimen gallery">
   <div class="container pos-rel">
     <div class="specimen-header section-header fade-in">
       <div class="dept-label label-upper">Arachnid Society · Selected Specimens</div>
@@ -778,8 +801,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
+        <button type="button" class="img-btn" aria-label="Dynastinae sp. — Rhinoceros Beetle">
         <img class="specimen-img" src="images/photo_frame_beetle_1.jpg" alt="Mounted rhinoceros beetle specimen" loading="lazy"
              data-lightbox="specimens" data-caption="Dynastinae sp. — Rhinoceros Beetle">
+      </button>
         <div class="glass-overlay"></div>
       </div>
       <span class="ornate-corner tl">❧</span>
@@ -795,8 +820,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
+        <button type="button" class="img-btn" aria-label="Lucanidae sp. — Gilded Stag Beetle">
         <img class="specimen-img" src="images/photo_frame_beetle_2.jpg" alt="Gilded stag beetle specimen" loading="lazy"
              data-lightbox="specimens" data-caption="Lucanidae sp. — Gilded Stag Beetle">
+      </button>
         <div class="glass-overlay"></div>
       </div>
       <span class="ornate-corner tl">❧</span>
@@ -812,8 +839,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
+        <button type="button" class="img-btn" aria-label="Theraphosidae sp. — Tarantula">
         <img class="specimen-img" src="images/photo_frame_spider_1.png" alt="Mounted tarantula specimen on frame" loading="lazy"
              data-lightbox="specimens" data-caption="Theraphosidae sp. — Tarantula">
+      </button>
         <div class="glass-overlay"></div>
       </div>
       <span class="ornate-corner tl">❧</span>
@@ -833,6 +862,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     </div>
   </div>
 </section>
+
+</main>
 
 <div class="container"><hr class="sep"></div>
 
@@ -900,12 +931,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     groups[g].push({src: img.src, alt: img.alt, caption: img.dataset.caption || ''});
   });
 
-  // Make images keyboard-accessible
-  document.querySelectorAll('img[data-lightbox]').forEach(function(img){
-    img.setAttribute('tabindex','0');
-    img.setAttribute('role','button');
-  });
-
   function openLightbox(group, index){
     currentGroup = group;
     currentIndex = index;
@@ -917,6 +942,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     // Focus close button
     lb.querySelector('.lightbox-close').focus();
   }
+
+  function getFocusable(el){
+    return Array.from(el.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+  }
+
+  // Focus trap inside open lightbox
+  function trapFocus(e){
+    if(!lb.classList.contains('open')) return;
+    var focusable = getFocusable(lb);
+    if(focusable.length === 0) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if(e.key === 'Tab'){
+      if(e.shiftKey){
+        if(document.activeElement === first){
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if(document.activeElement === last){
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  }
+  document.addEventListener('keydown', trapFocus);
 
   function closeLightbox(){
     lb.classList.remove('open');
@@ -949,20 +1001,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     showSlide();
   }
 
-  // Click handlers for images
-  document.querySelectorAll('img[data-lightbox]').forEach(function(img){
-    img.addEventListener('click',function(e){
+  // Click handlers for lightbox buttons
+  document.querySelectorAll('.img-btn[data-lightbox], .img-btn').forEach(function(btn){
+    var img = btn.querySelector('img[data-lightbox]');
+    if(!img) return;
+    btn.addEventListener('click',function(e){
       var g = img.dataset.lightbox;
       var idx = groups[g].findIndex(function(s){ return s.src === img.src; });
       openLightbox(g, idx >= 0 ? idx : 0);
-    });
-    img.addEventListener('keydown',function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        var g = img.dataset.lightbox;
-        var idx = groups[g].findIndex(function(s){ return s.src === img.src; });
-        openLightbox(g, idx >= 0 ? idx : 0);
-      }
     });
   });
 
