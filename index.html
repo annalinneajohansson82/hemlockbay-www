@@ -76,6 +76,22 @@ body::after{
 /* ── UTILITY ── */
 .container{max-width:960px;margin:0 auto;padding:0 24px}
 .pos-rel{position:relative}
+.body-text{font-size:16px;color:var(--cream-dim);line-height:1.85}
+.callout{padding:12px 16px;background:rgba(196,164,74,.04);border-left:2px solid var(--gold-dim);margin:16px 0;font-size:15px}
+.callout em{color:var(--gold);font-style:normal;font-family:var(--font-ornate)}
+.gold{color:var(--gold)}
+.section-header{text-align:center;margin-bottom:48px}
+.label-upper{font-family:var(--font-body);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);font-weight:500}
+.btn-base{background:none;border:none;color:var(--cream-dark);cursor:pointer;transition:color .3s;font-family:var(--font-body)}
+.heading-block{font-family:var(--font-block);text-transform:uppercase;color:var(--cream)}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(42px,10vw,96px);
+  letter-spacing:12px;
+  line-height:1.1;
+  margin-bottom:8px;
+  text-shadow:0 0 40px rgba(196,164,74,.08);
+}
 .sep{
   border:none;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
@@ -97,7 +113,7 @@ body::after{
   animation:pulse 2.5s ease-in-out infinite;
   text-align:center;
 }
-.scroll-hint span{display:block;font-size:18px;margin-top:6px}
+.scroll-arrow{display:block;font-size:18px;margin-top:6px}
 @keyframes pulse{
   0%,100%{opacity:.3;transform:translateX(-50%) translateY(0)}
   50%{opacity:.8;transform:translateX(-50%) translateY(6px)}
@@ -119,16 +135,6 @@ body::after{
   letter-spacing:6px;
   margin-bottom:24px;
 }
-.hero h1{
-  font-family:var(--font-display);
-  font-size:clamp(42px,10vw,96px);
-  letter-spacing:12px;
-  color:var(--cream);
-  line-height:1.1;
-  margin-bottom:8px;
-  text-shadow:0 0 40px rgba(196,164,74,.08);
-}
-.hero h1 span{color:var(--gold)}
 .hero-tagline{
   font-family:var(--font-ornate);
   font-size:clamp(14px,2vw,22px);
@@ -155,30 +161,12 @@ body::after{
   opacity:.5;
 }
 .curator-note .label{
-  font-family:var(--font-body);
-  font-size:11px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold-dim);
   margin-bottom:12px;
-  font-weight:500;
 }
-.curator-note h2{
-  font-family:var(--font-block);
+.curator-note .section-title{
   font-size:clamp(22px,3.5vw,36px);
   letter-spacing:4px;
-  text-transform:uppercase;
   margin-bottom:20px;
-  color:var(--cream);
-}
-.curator-note h2 span{color:var(--gold)}
-.curator-note .body-text{font-size:16px;color:var(--cream-dim);line-height:1.85}
-.curator-note .script-note{
-  padding:12px 16px;
-  background:rgba(196,164,74,.04);
-  border-left:2px solid var(--gold-dim);
-  margin:16px 0;
-  font-size:15px;
 }
 
 /* ── CABINET DRAWER ── */
@@ -195,24 +183,14 @@ body::after{
   background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
 }
 .drawer-number{
-  font-family:var(--font-body);
-  font-size:11px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold-dim);
   margin-bottom:8px;
-  font-weight:500;
 }
 .drawer-header{text-align:center;margin-bottom:48px}
-.drawer-header h2{
-  font-family:var(--font-block);
+.drawer-header .section-title{
   font-size:clamp(28px,4vw,42px);
   letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--cream);
   margin-bottom:6px;
 }
-.drawer-header h2 span{color:var(--gold)}
 .drawer-header .latin-name{
   font-family:var(--font-ornate);
   font-size:15px;
@@ -242,7 +220,7 @@ body::after{
 }
 .drawer-content.mt-32{margin-top:32px}
 .drawer-plate{position:relative}
-.drawer-plate img{
+.drawer-plate .plate-img{
   width:100%;
   height:auto;
   display:block;
@@ -250,7 +228,7 @@ body::after{
   cursor:pointer;
   transition:border-color .3s;
 }
-.drawer-plate img:hover{border-color:var(--gold-dim)}
+.drawer-plate .plate-img:hover{border-color:var(--gold-dim)}
 .drawer-plate .plate-label{
   font-family:var(--font-body);
   font-size:10px;
@@ -272,21 +250,12 @@ body::after{
   padding-bottom:16px;
   border-bottom:1px solid var(--border);
 }
-.field-notes .note-meta strong{
+.field-notes .note-meta .meta-label{
   color:var(--gold-dim);
   font-weight:500;
   letter-spacing:1px;
 }
-.field-notes .note-body{font-size:16px;color:var(--cream-dim);line-height:1.85}
-.field-notes .note-body p{margin-bottom:14px}
-.field-notes .note-body .taxon{
-  padding:12px 16px;
-  background:rgba(196,164,74,.04);
-  border-left:2px solid var(--gold-dim);
-  margin:16px 0;
-  font-size:15px;
-}
-.field-notes .note-body .taxon em{color:var(--gold);font-style:normal;font-family:var(--font-ornate)}
+.field-notes .note-body .note-para{margin-bottom:14px}
 .note-footnote{
   font-size:16px;
   color:var(--cream);
@@ -318,24 +287,14 @@ body::after{
 
 /* ── SPECIMEN GALLERY ── */
 .specimen-section{padding:80px 0}
-.specimen-header{text-align:center;margin-bottom:48px}
 .specimen-header .dept-label{
-  font-family:var(--font-body);
-  font-size:11px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold-dim);
   margin-bottom:8px;
-  font-weight:500;
 }
-.specimen-header h2{
-  font-family:var(--font-block);
+.specimen-header .section-title{
   font-size:clamp(20px,3vw,32px);
   letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--cream);
 }
-.specimen-header h2 span{color:var(--gold)}
+
 .specimen-header .specimen-intro{
   font-size:14px;
   color:var(--cream-dim);
@@ -375,7 +334,7 @@ body::after{
   background:radial-gradient(ellipse at center,var(--burgundy-light) 0%,var(--burgundy) 60%,var(--black) 100%);
   opacity:.85;
 }
-.specimen-card img{
+.specimen-card .specimen-img{
   position:absolute;inset:0;
   width:100%;height:100%;
   object-fit:cover;
@@ -383,7 +342,7 @@ body::after{
   transition:filter .6s ease;
   cursor:pointer;
 }
-.specimen-card:hover img{
+.specimen-card:hover .specimen-img{
   filter:grayscale(.2) sepia(.1) saturate(1) brightness(.85) contrast(1.05);
 }
 .specimen-card .glass-overlay{
@@ -458,7 +417,7 @@ body::after{
   align-items:center;
   justify-content:center;
 }
-.lightbox-img-container img{
+.lightbox-img-container .lightbox-main-img{
   max-width:100%;
   max-height:80vh;
   object-fit:contain;
@@ -477,25 +436,15 @@ body::after{
 }
 .lightbox-close{
   position:absolute;top:24px;right:32px;
-  background:none;border:none;
-  color:var(--cream-dark);
   font-size:32px;
-  cursor:pointer;
   line-height:1;
   padding:8px;
-  transition:color .3s;
-  font-family:var(--font-body);
 }
 .lightbox-close:hover,.lightbox-close:focus-visible{color:var(--gold)}
 .lightbox-prev,.lightbox-next{
   position:absolute;top:50%;transform:translateY(-50%);
-  background:none;border:none;
-  color:var(--cream-dark);
   font-size:40px;
-  cursor:pointer;
   padding:16px;
-  transition:color .3s;
-  font-family:var(--font-body);
 }
 .lightbox-prev{left:16px}
 .lightbox-next{right:16px}
@@ -512,8 +461,8 @@ body::after{
 .lightbox-close:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* ── FOOTER ── */
-footer{padding:64px 0 40px;text-align:center;position:relative}
-footer::before{
+.page-footer{padding:64px 0 40px;text-align:center;position:relative}
+.page-footer::before{
   content:'';
   position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:60%;height:1px;
@@ -534,7 +483,7 @@ footer::before{
   flex-wrap:wrap;
   margin-bottom:32px;
 }
-.footer-links a{
+.footer-links .footer-link{
   font-family:var(--font-body);
   font-size:12px;
   letter-spacing:3px;
@@ -547,8 +496,8 @@ footer::before{
   gap:8px;
   font-weight:500;
 }
-.footer-links a:hover,.footer-links a:focus-visible{color:var(--gold);outline-color:var(--gold)}
-.footer-links a::before{
+.footer-links .footer-link:hover,.footer-links .footer-link:focus-visible{color:var(--gold);outline-color:var(--gold)}
+.footer-links .footer-link::before{
   content:'◈';
   font-size:7px;
   color:var(--gold-dim);
@@ -613,7 +562,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 }
 @media(max-width:500px){
   .specimen-grid{grid-template-columns:1fr;max-width:340px}
-  .hero h1{font-size:clamp(32px,14vw,48px);letter-spacing:6px}
+  .hero-title{font-size:clamp(32px,14vw,48px);letter-spacing:6px}
   .footer-links{gap:20px}
 }
 </style>
@@ -625,10 +574,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-curio fade-in">✦ Cabinet of Curiosities ✦</div>
-  <h1 class="fade-in">Hemlock <span>Bay</span></h1>
+  <h1 class="hero-title fade-in">Hemlock <span class="gold">Bay</span></h1>
   <div class="hero-tagline fade-in">Occultum Investigamus</div>
   <p class="hero-intro fade-in">A private collection of cryptobiological specimens, anatomical plates, and field notes from the Hemlock Bay Institute archives. Enter at your own discretion.</p>
-  <div class="scroll-hint fade-in">Scroll to examine<span>▼</span></div>
+  <div class="scroll-hint fade-in">Scroll to examine<span class="scroll-arrow">▼</span></div>
 </section>
 
 <!-- ════════════════════════════════════════════ -->
@@ -638,14 +587,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="container">
     <div class="curator-note fade-in">
       <div class="ornament-head">❧</div>
-      <div class="label">A Note from the Curator</div>
-      <h2>The <span>Dark</span> Curiosity Cabinet</h2>
+      <div class="label label-upper">A Note from the Curator</div>
+      <h2 class="section-title heading-block">The <span class="gold">Dark</span> Curiosity Cabinet</h2>
       <div class="body-text">
         <p>What follows is a selection from the restricted archives of the <strong>Hemlock Bay Institute of Cryptobiological Studies</strong> — specimens that the public catalogue does not contain, plates that were never published, and field notes that were never submitted for peer review.</p>
         <p>The Institute has maintained a quiet collection since its founding in 1847. Most of its holdings are unremarkable: pressed plants, mineral samples, the usual detritus of provincial natural history. But a few drawers were kept separate. These are those drawers.</p>
         <p>The creatures documented herein are not recognised by any accredited zoological body. Their taxonomic status remains provisional. Their existence, where acknowledged at all, is attributed to hoax, misidentification, or local superstition. The Institute takes no official position on their validity. We merely preserve the records.</p>
       </div>
-      <div class="script-note">
+      <div class="callout">
         The collector whose name appears on the original catalogue entries was a man of meticulous habit and questionable judgment. His annotations are reproduced faithfully, including those passages where his handwriting becomes agitated.
       </div>
     </div>
@@ -661,16 +610,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="container pos-rel">
     <span class="marginalia left">Cervidae aberrant</span>
 
-    <div class="drawer-number fade-in">Drawer I</div>
-    <div class="drawer-header fade-in">
-      <h2>Hunter <span>Stag</span></h2>
+    <div class="drawer-number label-upper fade-in">Drawer I</div>
+    <div class="drawer-header section-header fade-in">
+      <h2 class="section-title heading-block">Hunter <span class="gold">Stag</span></h2>
       <div class="latin-name">Cervus venator</div>
       <div class="catalog-ref">Catalogue No. HBICS–C–021</div>
     </div>
 
     <div class="drawer-content fade-in">
       <div class="drawer-plate">
-        <img src="images/creatures/engraving_cervus_venator.jpg" alt="Cervus venator — skeletal view, TAB. CII" loading="lazy"
+        <img class="plate-img" src="images/creatures/engraving_cervus_venator.jpg" alt="Cervus venator — skeletal view, TAB. CII" loading="lazy"
              data-lightbox="hunter-stag" data-caption="TAB. CII. — Cervus venator, skeletal view">
         <div class="plate-label">TAB. CII. — Cervus venator, skeletal view</div>
       </div>
@@ -678,15 +627,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="note-meta">
           <span><strong>Classification:</strong> Cervidae (aberrant)</span>
           <span><strong>Status:</strong> Existence provisionally accepted</span>
-          <span><strong>Etiology:</strong> Suspected mycotoxin</span>
+          <span><strong class="meta-label">Etiology:</strong> Suspected mycotoxin</span>
         </div>
-        <div class="note-body">
-          <p>An aberrant cervine marked by upright posture and predatory dentition. Nocturnal and solitary in habit. Seldom encountered beyond deep woodland regions of scarcity.</p>
-          <div class="taxon">
+        <div class="note-body body-text">
+          <p class="note-para">An aberrant cervine marked by upright posture and predatory dentition. Nocturnal and solitary in habit. Seldom encountered beyond deep woodland regions of scarcity.</p>
+          <div class="callout">
             <em>Mycotrema cervina</em> (Stag's Bane) — a rare toxic fungus found in deep, overgrown woodland with depleted soil. Fruiting bodies are pale, fibrous, and irregularly antlered in form, emitting a faintly sweet, resinous odor. Healthy deer appear to avoid it entirely.
           </div>
-          <p>The condition appears to affect stags exclusively, most frequently following prolonged starvation during or after the rut. Afflicted individuals are suspected to ingest the fungus under extreme distress, precipitating severe neurological disturbance, metabolic collapse, and morphological aberration culminating in the predatory form.</p>
-          <p>Early colonial correspondence contains scattered references to the introduction of foreign game animals, occasionally accompanied by warnings regarding their unsuitability to local conditions and the unforeseen consequences of their release.</p>
+          <p class="note-para">The condition appears to affect stags exclusively, most frequently following prolonged starvation during or after the rut. Afflicted individuals are suspected to ingest the fungus under extreme distress, precipitating severe neurological disturbance, metabolic collapse, and morphological aberration culminating in the predatory form.</p>
+          <p class="note-para">Early colonial correspondence contains scattered references to the introduction of foreign game animals, occasionally accompanied by warnings regarding their unsuitability to local conditions and the unforeseen consequences of their release.</p>
         </div>
         <div class="note-footnote">
           The upright posture is unmistakable in the field, yet no complete specimen has ever been retained. What we know comes from fragmentary reports and a single set of sketches dated 1873.
@@ -699,16 +648,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="drawer-content fade-in mt-32">
       <div class="field-notes">
         <div class="note-meta">
-          <span><strong>Plate:</strong> TAB. CIII.</span>
-          <span><strong>Source:</strong> Comparative osteology series</span>
+          <span><strong class="meta-label">Plate:</strong> TAB. CIII.</span>
+          <span><strong class="meta-label">Source:</strong> Comparative osteology series</span>
         </div>
-        <div class="note-body">
-          <p>A second plate in the series depicts the specimen from the opposite aspect, revealing the full extent of the cervical elongation and the modified dentition. The inclusion of a human skull for scale (lower right) was, according to the marginalia, the artist's own decision — the collector made no such request.</p>
-          <p>The comparative skull is labelled simply <em>"a"</em> and is believed to be that of an adult male. Its provenance is not recorded in the catalogue.</p>
+        <div class="note-body body-text">
+          <p class="note-para">A second plate in the series depicts the specimen from the opposite aspect, revealing the full extent of the cervical elongation and the modified dentition. The inclusion of a human skull for scale (lower right) was, according to the marginalia, the artist's own decision — the collector made no such request.</p>
+          <p class="note-para">The comparative skull is labelled simply <em>"a"</em> and is believed to be that of an adult male. Its provenance is not recorded in the catalogue.</p>
         </div>
       </div>
       <div class="drawer-plate">
-        <img src="images/creatures/engraving_cervus_venator_2.jpg" alt="Cervus venator — alternate skeletal view, TAB. CIII" loading="lazy"
+        <img class="plate-img" src="images/creatures/engraving_cervus_venator_2.jpg" alt="Cervus venator — alternate skeletal view, TAB. CIII" loading="lazy"
              data-lightbox="hunter-stag" data-caption="TAB. CIII. — Cervus venator, alternate aspect">
         <div class="plate-label">TAB. CIII. — Cervus venator, alternate aspect</div>
       </div>
@@ -727,9 +676,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="container pos-rel">
     <span class="marginalia left">Ardeidae prov.</span>
 
-    <div class="drawer-number fade-in">Drawer II</div>
-    <div class="drawer-header fade-in">
-      <h2>Witness <span>Heron</span></h2>
+    <div class="drawer-number label-upper fade-in">Drawer II</div>
+    <div class="drawer-header section-header fade-in">
+      <h2 class="section-title heading-block">Witness <span class="gold">Heron</span></h2>
       <div class="latin-name">Ardea testis <span class="subtle">— The Devil's Heron</span></div>
       <div class="catalog-ref">Catalogue No. HBICS–A–017</div>
     </div>
@@ -739,23 +688,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="note-meta">
           <span><strong>Classification:</strong> Aves, Ardeidae (provisional)</span>
           <span><strong>Status:</strong> Publicly dismissed; privately documented</span>
-          <span><strong>Etymology:</strong> testis — witness</span>
+          <span><strong class="meta-label">Etymology:</strong> testis — witness</span>
         </div>
-        <div class="note-body">
-          <p>A marsh-dwelling carrion bird persistently miscast as demonic by colonial authorities. The species does not cause death — it is observed only in its proximity. It arrives after the event, much like vultures.</p>
-          <p>Paired keratin horns are present atop the skull. Structures are symmetrical, permanent, and non-pathological. Infernal interpretations are unsupported by the evidence — though Puritan clergy of the 17th century described it as "a bird that counts the damned."</p>
-          <div class="taxon">
+        <div class="note-body body-text">
+          <p class="note-para">A marsh-dwelling carrion bird persistently miscast as demonic by colonial authorities. The species does not cause death — it is observed only in its proximity. It arrives after the event, much like vultures.</p>
+          <p class="note-para">Paired keratin horns are present atop the skull. Structures are symmetrical, permanent, and non-pathological. Infernal interpretations are unsupported by the evidence — though Puritan clergy of the 17th century described it as "a bird that counts the damned."</p>
+          <div class="callout">
             <em>Ardea testis</em> — The binomial was chosen deliberately by early scholars to assert that the creature does not cause death, but merely appears in its presence. A distinction consistently rejected by theological doctrine.
           </div>
-          <p>The bird will often stand motionless for extended periods, facing the deceased. If disturbed, it does not flee. It slowly turns its head and emits a low, windlike vocalization. No attacks have been recorded. Its diet includes fish, small mammals, and carrion — with a marked preference for human remains.</p>
-          <p>By the early 18th century, physical specimens had been documented, skulls catalogued (then miscatalogued or misplaced), and illustrations circulated privately among naturalists. The public position became: a malformed heron. A hoax. A colonial superstition.</p>
+          <p class="note-para">The bird will often stand motionless for extended periods, facing the deceased. If disturbed, it does not flee. It slowly turns its head and emits a low, windlike vocalization. No attacks have been recorded. Its diet includes fish, small mammals, and carrion — with a marked preference for human remains.</p>
+          <p class="note-para">By the early 18th century, physical specimens had been documented, skulls catalogued (then miscatalogued or misplaced), and illustrations circulated privately among naturalists. The public position became: a malformed heron. A hoax. A colonial superstition.</p>
         </div>
         <div class="note-footnote">
           Folklore holds that if the bird faces a dwelling, death is already inside. Its bones are considered cursed, yet are nevertheless collected.
         </div>
       </div>
       <div class="drawer-plate">
-        <img src="images/creatures/engraving_ardera_testis.jpg" alt="Ardea testis — skeletal plate, TAB. CX" loading="lazy"
+        <img class="plate-img" src="images/creatures/engraving_ardera_testis.jpg" alt="Ardea testis — skeletal plate, TAB. CX" loading="lazy"
              data-lightbox="witness-heron" data-caption="TAB. CX. — Ardea testis, skeletal plate">
         <div class="plate-label">TAB. CX. — Ardea testis, skeletal plate</div>
       </div>
@@ -774,16 +723,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="container pos-rel">
     <span class="marginalia left">Hominidae aberr.</span>
 
-    <div class="drawer-number fade-in">Drawer III</div>
-    <div class="drawer-header fade-in">
-      <h2>Common <span>Werewolf</span></h2>
+    <div class="drawer-number label-upper fade-in">Drawer III</div>
+    <div class="drawer-header section-header fade-in">
+      <h2 class="section-title heading-block">Common <span class="gold">Werewolf</span></h2>
       <div class="latin-name">Homo lycanthropus</div>
       <div class="catalog-ref">Catalogue No. HBICS–H–024</div>
     </div>
 
     <div class="drawer-content fade-in">
       <div class="drawer-plate">
-        <img src="images/creatures/engraving_homo_lycanthropus.jpg" alt="Homo lycanthropus — skeletal plate, TAB. III" loading="lazy"
+        <img class="plate-img" src="images/creatures/engraving_homo_lycanthropus.jpg" alt="Homo lycanthropus — skeletal plate, TAB. III" loading="lazy"
              data-lightbox="werewolf" data-caption="TAB. III. — Homo lycanthropus, skeletal plate">
         <div class="plate-label">TAB. III. — Homo lycanthropus, skeletal plate</div>
       </div>
@@ -791,15 +740,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="note-meta">
           <span><strong>Classification:</strong> Hominidae (aberrant condition)</span>
           <span><strong>Status:</strong> Condition acknowledged; mechanism unresolved</span>
-          <span><strong>Transformation:</strong> Periodic and reversible</span>
+          <span><strong class="meta-label">Transformation:</strong> Periodic and reversible</span>
         </div>
-        <div class="note-body">
-          <p>A rare and profoundly aberrant condition in which human skeletal morphology undergoes periodic and extreme lupine distortion, producing a hybridized form characterized by digitigrade posture, elongation of the facial bones, and hypertrophy of the appendicular skeleton.</p>
-          <div class="taxon">
+        <div class="note-body body-text">
+          <p class="note-para">A rare and profoundly aberrant condition in which human skeletal morphology undergoes periodic and extreme lupine distortion, producing a hybridized form characterized by digitigrade posture, elongation of the facial bones, and hypertrophy of the appendicular skeleton.</p>
+          <div class="callout">
             Note the comparative human skull labelled <em>"B"</em> (lower left), included to demonstrate the extent of craniofacial remodelling. The artist has taken care to illustrate the dental transition — from omnivorous dentition to the carnassial arrangement of an obligate predator.
           </div>
-          <p>The underlying cause remains unestablished. Proposed explanations include transmissible agents, hereditary predisposition, or a degenerative neurological disorder. None sufficiently account for the observed periodicity or consistency of transformation across disparate regions.</p>
-          <p>No complete skeletal material has been retained. Documentation relies entirely on episodic observation. Transformation is periodic and reversible; no stable intermediate morphology has been documented. Reversion occurs without observable transitional ossification.</p>
+          <p class="note-para">The underlying cause remains unestablished. Proposed explanations include transmissible agents, hereditary predisposition, or a degenerative neurological disorder. None sufficiently account for the observed periodicity or consistency of transformation across disparate regions.</p>
+          <p class="note-para">No complete skeletal material has been retained. Documentation relies entirely on episodic observation. Transformation is periodic and reversible; no stable intermediate morphology has been documented. Reversion occurs without observable transitional ossification.</p>
         </div>
         <div class="note-footnote">
           The collector's notes on this specimen are fragmented and contradict themselves. At one point he refers to the subject as "Patient Zero." At another, he writes only: "I have seen what a man becomes when the bone forgets its shape."
@@ -818,9 +767,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <section class="specimen-section" id="specimens">
   <div class="container pos-rel">
-    <div class="specimen-header fade-in">
-      <div class="dept-label">Arachnid Society · Selected Specimens</div>
-      <h2>The <span>Framed</span> Collection</h2>
+    <div class="specimen-header section-header fade-in">
+      <div class="dept-label label-upper">Arachnid Society · Selected Specimens</div>
+      <h2 class="section-title heading-block">The <span class="gold">Framed</span> Collection</h2>
       <p class="specimen-intro">Mounted specimens from the private collection. Glass-fronted, velvet-backed, and numbered — though the register that corresponded to these numbers was lost in a fire in 1928.</p>
     </div>
   </div>
@@ -829,7 +778,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
-        <img src="images/photo_frame_beetle_1.jpg" alt="Mounted rhinoceros beetle specimen" loading="lazy"
+        <img class="specimen-img" src="images/photo_frame_beetle_1.jpg" alt="Mounted rhinoceros beetle specimen" loading="lazy"
              data-lightbox="specimens" data-caption="Dynastinae sp. — Rhinoceros Beetle">
         <div class="glass-overlay"></div>
       </div>
@@ -846,7 +795,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
-        <img src="images/photo_frame_beetle_2.jpg" alt="Gilded stag beetle specimen" loading="lazy"
+        <img class="specimen-img" src="images/photo_frame_beetle_2.jpg" alt="Gilded stag beetle specimen" loading="lazy"
              data-lightbox="specimens" data-caption="Lucanidae sp. — Gilded Stag Beetle">
         <div class="glass-overlay"></div>
       </div>
@@ -863,7 +812,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="specimen-card fade-in">
       <div class="frame-inner">
         <div class="velvet-bg"></div>
-        <img src="images/photo_frame_spider_1.png" alt="Mounted tarantula specimen on frame" loading="lazy"
+        <img class="specimen-img" src="images/photo_frame_spider_1.png" alt="Mounted tarantula specimen on frame" loading="lazy"
              data-lightbox="specimens" data-caption="Theraphosidae sp. — Tarantula">
         <div class="glass-overlay"></div>
       </div>
@@ -890,12 +839,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- FOOTER                                       -->
 <!-- ════════════════════════════════════════════ -->
-<footer>
+<footer class="page-footer">
   <div class="container">
     <div class="footer-ornament fade-in">❧ ✦ ❧</div>
     <div class="footer-links fade-in">
-      <a href="https://www.instagram.com/hemlock_bay/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tradera.com/profile/items/472746/reformedvintage" target="_blank" rel="noopener">Tradera</a>
+      <a class="footer-link" href="https://www.instagram.com/hemlock_bay/" target="_blank" rel="noopener">Instagram</a>
+      <a class="footer-link" href="https://www.tradera.com/profile/items/472746/reformedvintage" target="_blank" rel="noopener">Tradera</a>
     </div>
     <div class="footer-tagline fade-in">
       <span class="ornate">✦</span>
@@ -911,11 +860,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- LIGHTBOX OVERLAY                            -->
 <!-- ════════════════════════════════════════════ -->
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Image gallery" aria-hidden="true">
-  <button class="lightbox-close" aria-label="Close gallery">&times;</button>
-  <button class="lightbox-prev" aria-label="Previous image">‹</button>
-  <button class="lightbox-next" aria-label="Next image">›</button>
+  <button class="lightbox-close btn-base" aria-label="Close gallery">&times;</button>
+  <button class="lightbox-prev btn-base" aria-label="Previous image">‹</button>
+  <button class="lightbox-next btn-base" aria-label="Next image">›</button>
   <div class="lightbox-img-container">
-    <img src="" alt="" id="lightbox-img">
+    <img class="lightbox-main-img" src="" alt="" id="lightbox-img">
   </div>
   <div class="lightbox-caption" id="lightbox-caption"></div>
   <div class="lightbox-counter" id="lightbox-counter"></div>
