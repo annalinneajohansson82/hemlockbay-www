@@ -83,6 +83,8 @@ body::after{
 .section-header{text-align:center;margin-bottom:48px}
 .label-upper{font-family:var(--font-body);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);font-weight:500}
 .btn-base{background:none;border:none;color:var(--cream-dark);cursor:pointer;transition:color .3s;font-family:var(--font-body)}
+.skip-link{position:absolute;top:-100px;left:8px;background:var(--gold);color:var(--black);padding:8px 16px;z-index:10001;font-family:var(--font-body);font-size:14px;text-decoration:none}
+.skip-link:focus{top:8px}
 .heading-block{font-family:var(--font-block);text-transform:uppercase;color:var(--cream)}
 .hero-title{
   font-family:var(--font-display);
@@ -116,7 +118,7 @@ body::after{
   letter-spacing:4px;
   text-transform:uppercase;
   color:var(--gold-dim);
-  animation:pulse 2.5s ease-in-out infinite;
+  animation:pulse 2.5s ease-in-out 3;
   text-align:center;
 }
 }
@@ -232,7 +234,7 @@ body::after{
   width:100%;
   height:auto;
   display:block;
-  border:1px solid var(--border);
+  border:1px solid var(--gold-dim);
   cursor:pointer;
   transition:border-color .3s;
 }
@@ -263,7 +265,7 @@ body::after{
   font-weight:500;
   letter-spacing:1px;
 }
-.field-notes .note-body .note-para{margin-bottom:14px}
+.field-notes .note-body .note-para{margin-bottom:2.8em}
 .note-footnote{
   font-size:16px;
   color:var(--cream);
@@ -508,7 +510,7 @@ body::after{
   gap:8px;
   font-weight:500;
 }
-.footer-links .footer-link:hover,.footer-links .footer-link:focus-visible{color:var(--gold);outline-color:var(--gold)}
+.footer-links .footer-link:hover,.footer-links .footer-link:focus-visible{color:var(--gold)}
 .footer-links .footer-link::before{
   content:'◈';
   font-size:7px;
@@ -582,17 +584,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 </head>
 <body>
 
+<a href="#hunter-stag" class="skip-link">Skip to content</a>
+
 <main>
 
 <!-- ════════════════════════════════════════════ -->
 <!-- HERO — THE CABINET DOOR                     -->
 <!-- ════════════════════════════════════════════ -->
 <section class="hero" aria-label="Hero banner">
-  <div class="hero-curio fade-in">✦ Cabinet of Curiosities ✦</div>
+  <div class="hero-curio fade-in" aria-hidden="true">✦ Cabinet of Curiosities ✦</div>
   <h1 class="hero-title fade-in">Hemlock <span class="gold">Bay</span></h1>
   <div class="hero-tagline fade-in">Occultum Investigamus</div>
   <p class="hero-intro fade-in">A private collection of cryptobiological specimens, anatomical plates, and field notes from the Hemlock Bay Institute archives. Enter at your own discretion.</p>
-  <div class="scroll-hint fade-in">Scroll to examine<span class="scroll-arrow">▼</span></div>
+  <div class="scroll-hint fade-in">Scroll to examine<span class="scroll-arrow" aria-hidden="true">▼</span></div>
 </section>
 
 <!-- ════════════════════════════════════════════ -->
@@ -601,7 +605,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <section class="curator-section" aria-label="Curator's note">
   <div class="container">
     <div class="curator-note fade-in">
-      <div class="ornament-head">❧</div>
+      <div class="ornament-head" aria-hidden="true">❧</div>
       <div class="label label-upper">A Note from the Curator</div>
       <h2 class="section-title heading-block">The <span class="gold">Dark</span> Curiosity Cabinet</h2>
       <div class="body-text">
@@ -628,7 +632,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="drawer-number label-upper fade-in">Drawer I</div>
     <div class="drawer-header section-header fade-in">
       <h2 class="section-title heading-block" id="hunter-stag-heading">Hunter <span class="gold">Stag</span></h2>
-      <div class="latin-name">Cervus venator</div>
+      <div class="latin-name" lang="la">Cervus venator</div>
       <div class="catalog-ref">Catalogue No. HBICS–C–021</div>
     </div>
 
@@ -649,7 +653,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="note-body body-text">
           <p class="note-para">An aberrant cervine marked by upright posture and predatory dentition. Nocturnal and solitary in habit. Seldom encountered beyond deep woodland regions of scarcity.</p>
           <div class="callout">
-            <em>Mycotrema cervina</em> (Stag's Bane) — a rare toxic fungus found in deep, overgrown woodland with depleted soil. Fruiting bodies are pale, fibrous, and irregularly antlered in form, emitting a faintly sweet, resinous odor. Healthy deer appear to avoid it entirely.
+            <em lang="la">Mycotrema cervina</em> (Stag's Bane) — a rare toxic fungus found in deep, overgrown woodland with depleted soil. Fruiting bodies are pale, fibrous, and irregularly antlered in form, emitting a faintly sweet, resinous odor. Healthy deer appear to avoid it entirely.
           </div>
           <p class="note-para">The condition appears to affect stags exclusively, most frequently following prolonged starvation during or after the rut. Afflicted individuals are suspected to ingest the fungus under extreme distress, precipitating severe neurological disturbance, metabolic collapse, and morphological aberration culminating in the predatory form.</p>
           <p class="note-para">Early colonial correspondence contains scattered references to the introduction of foreign game animals, occasionally accompanied by warnings regarding their unsuitability to local conditions and the unforeseen consequences of their release.</p>
@@ -660,7 +664,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </div>
     </div>
 
-    <div class="filigree">❧ ✦ ❧</div>
+    <div class="filigree" aria-hidden="true">❧ ✦ ❧</div>
 
     <div class="drawer-content fade-in mt-32">
       <div class="field-notes">
@@ -698,7 +702,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="drawer-number label-upper fade-in">Drawer II</div>
     <div class="drawer-header section-header fade-in">
       <h2 class="section-title heading-block" id="witness-heron-heading">Witness <span class="gold">Heron</span></h2>
-      <div class="latin-name">Ardea testis <span class="subtle">— The Devil's Heron</span></div>
+      <div class="latin-name" lang="la">Ardea testis <span class="subtle">— The Devil's Heron</span></div>
       <div class="catalog-ref">Catalogue No. HBICS–A–017</div>
     </div>
 
@@ -713,7 +717,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <p class="note-para">A marsh-dwelling carrion bird persistently miscast as demonic by colonial authorities. The species does not cause death — it is observed only in its proximity. It arrives after the event, much like vultures.</p>
           <p class="note-para">Paired keratin horns are present atop the skull. Structures are symmetrical, permanent, and non-pathological. Infernal interpretations are unsupported by the evidence — though Puritan clergy of the 17th century described it as "a bird that counts the damned."</p>
           <div class="callout">
-            <em>Ardea testis</em> — The binomial was chosen deliberately by early scholars to assert that the creature does not cause death, but merely appears in its presence. A distinction consistently rejected by theological doctrine.
+            <em lang="la">Ardea testis</em> — The binomial was chosen deliberately by early scholars to assert that the creature does not cause death, but merely appears in its presence. A distinction consistently rejected by theological doctrine.
           </div>
           <p class="note-para">The bird will often stand motionless for extended periods, facing the deceased. If disturbed, it does not flee. It slowly turns its head and emits a low, windlike vocalization. No attacks have been recorded. Its diet includes fish, small mammals, and carrion — with a marked preference for human remains.</p>
           <p class="note-para">By the early 18th century, physical specimens had been documented, skulls catalogued (then miscatalogued or misplaced), and illustrations circulated privately among naturalists. The public position became: a malformed heron. A hoax. A colonial superstition.</p>
@@ -747,7 +751,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="drawer-number label-upper fade-in">Drawer III</div>
     <div class="drawer-header section-header fade-in">
       <h2 class="section-title heading-block" id="werewolf-heading">Common <span class="gold">Werewolf</span></h2>
-      <div class="latin-name">Homo lycanthropus</div>
+      <div class="latin-name" lang="la">Homo lycanthropus</div>
       <div class="catalog-ref">Catalogue No. HBICS–H–024</div>
     </div>
 
@@ -807,12 +811,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </button>
         <div class="glass-overlay"></div>
       </div>
-      <span class="ornate-corner tl">❧</span>
-      <span class="ornate-corner tr">❧</span>
-      <span class="ornate-corner bl">❧</span>
-      <span class="ornate-corner br">❧</span>
+      <span class="ornate-corner tl" aria-hidden="true">❧</span>
+      <span class="ornate-corner tr" aria-hidden="true">❧</span>
+      <span class="ornate-corner bl" aria-hidden="true">❧</span>
+      <span class="ornate-corner br" aria-hidden="true">❧</span>
       <div class="specimen-label">
-        <span class="gold-ornament">◈</span>
+        <span class="gold-ornament" aria-hidden="true">◈</span>
         Dynastinae sp. — Rhinoceros Beetle
       </div>
     </div>
@@ -826,12 +830,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </button>
         <div class="glass-overlay"></div>
       </div>
-      <span class="ornate-corner tl">❧</span>
-      <span class="ornate-corner tr">❧</span>
-      <span class="ornate-corner bl">❧</span>
-      <span class="ornate-corner br">❧</span>
+      <span class="ornate-corner tl" aria-hidden="true">❧</span>
+      <span class="ornate-corner tr" aria-hidden="true">❧</span>
+      <span class="ornate-corner bl" aria-hidden="true">❧</span>
+      <span class="ornate-corner br" aria-hidden="true">❧</span>
       <div class="specimen-label">
-        <span class="gold-ornament">◈</span>
+        <span class="gold-ornament" aria-hidden="true">◈</span>
         Lucanidae sp. — Gilded Stag Beetle
       </div>
     </div>
@@ -845,12 +849,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </button>
         <div class="glass-overlay"></div>
       </div>
-      <span class="ornate-corner tl">❧</span>
-      <span class="ornate-corner tr">❧</span>
-      <span class="ornate-corner bl">❧</span>
-      <span class="ornate-corner br">❧</span>
+      <span class="ornate-corner tl" aria-hidden="true">❧</span>
+      <span class="ornate-corner tr" aria-hidden="true">❧</span>
+      <span class="ornate-corner bl" aria-hidden="true">❧</span>
+      <span class="ornate-corner br" aria-hidden="true">❧</span>
       <div class="specimen-label">
-        <span class="gold-ornament">◈</span>
+        <span class="gold-ornament" aria-hidden="true">◈</span>
         Theraphosidae sp. — Tarantula
       </div>
     </div>
@@ -872,15 +876,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <footer class="page-footer">
   <div class="container">
-    <div class="footer-ornament fade-in">❧ ✦ ❧</div>
+    <div class="footer-ornament fade-in" aria-hidden="true">❧ ✦ ❧</div>
     <div class="footer-links fade-in">
-      <a class="footer-link" href="https://www.instagram.com/hemlock_bay/" target="_blank" rel="noopener">Instagram</a>
-      <a class="footer-link" href="https://www.tradera.com/profile/items/472746/reformedvintage" target="_blank" rel="noopener">Tradera</a>
+      <a class="footer-link" href="https://www.instagram.com/hemlock_bay/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">Instagram</a>
+      <a class="footer-link" href="https://www.tradera.com/profile/items/472746/reformedvintage" target="_blank" rel="noopener" aria-label="Tradera (opens in new tab)">Tradera</a>
     </div>
     <div class="footer-tagline fade-in">
-      <span class="ornate">✦</span>
+      <span class="ornate" aria-hidden="true">✦</span>
       Hemlock Bay Archive · Established 2023
-      <span class="ornate">✦</span>
+      <span class="ornate" aria-hidden="true">✦</span>
       <span class="fine-print">All records property of the Hemlock Bay Municipal Archives · No reproductions without written consent</span>
       <span class="sig">— The collection continues —</span>
     </div>
@@ -890,15 +894,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <!-- ════════════════════════════════════════════ -->
 <!-- LIGHTBOX OVERLAY                            -->
 <!-- ════════════════════════════════════════════ -->
-<div class="lightbox" id="lightbox" role="dialog" aria-label="Image gallery" aria-hidden="true">
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image gallery" aria-modal="true" aria-hidden="true">
   <button class="lightbox-close btn-base" aria-label="Close gallery">&times;</button>
   <button class="lightbox-prev btn-base" aria-label="Previous image">‹</button>
   <button class="lightbox-next btn-base" aria-label="Next image">›</button>
   <div class="lightbox-img-container">
     <img class="lightbox-main-img" src="" alt="" id="lightbox-img">
   </div>
-  <div class="lightbox-caption" id="lightbox-caption"></div>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
+  <div class="lightbox-caption" id="lightbox-caption" aria-live="polite"></div>
+  <div class="lightbox-counter" id="lightbox-counter" aria-live="polite" aria-atomic="true"></div>
 </div>
 
 <!-- ── JS ── -->
@@ -938,13 +942,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     showSlide();
     lb.classList.add('open');
     lb.setAttribute('aria-hidden','false');
+    lb.setAttribute('aria-modal','true');
     document.body.style.overflow = 'hidden';
+    // Restore tabindex for focusable children
+    lb.querySelectorAll('button').forEach(function(el){
+      if(el.style.display !== 'none') el.removeAttribute('tabindex');
+    });
     // Focus close button
     lb.querySelector('.lightbox-close').focus();
   }
 
   function getFocusable(el){
-    return Array.from(el.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+    return Array.from(el.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+      .filter(function(el){ return el.style.display !== 'none' && el.offsetParent !== null; });
   }
 
   // Focus trap inside open lightbox
@@ -973,20 +983,44 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   function closeLightbox(){
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden','true');
+    lb.setAttribute('aria-modal','false');
     document.body.style.overflow = '';
+    // Remove all focusable children from tab order
+    lb.querySelectorAll('button').forEach(function(el){
+      el.setAttribute('tabindex','-1');
+    });
     if(lastFocus) lastFocus.focus();
   }
 
   function showSlide(){
     var slides = groups[currentGroup];
     var slide = slides[currentIndex];
+    lbImg.onerror = function(){
+      lbCaption.textContent = 'Image unavailable: ' + slide.caption;
+      lbImg.alt = 'Image failed to load';
+    };
     lbImg.src = slide.src;
     lbImg.alt = slide.alt;
     lbCaption.textContent = slide.caption;
     lbCounter.textContent = (currentIndex + 1) + ' / ' + slides.length;
     // Update prev/next visibility
-    lb.querySelector('.lightbox-prev').style.visibility = slides.length > 1 ? '' : 'hidden';
-    lb.querySelector('.lightbox-next').style.visibility = slides.length > 1 ? '' : 'hidden';
+    var prevBtn = lb.querySelector('.lightbox-prev');
+    var nextBtn = lb.querySelector('.lightbox-next');
+    if(slides.length > 1){
+      prevBtn.style.display = '';
+      nextBtn.style.display = '';
+      prevBtn.removeAttribute('tabindex');
+      nextBtn.removeAttribute('tabindex');
+      prevBtn.removeAttribute('aria-hidden');
+      nextBtn.removeAttribute('aria-hidden');
+    } else {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      prevBtn.setAttribute('tabindex','-1');
+      nextBtn.setAttribute('tabindex','-1');
+      prevBtn.setAttribute('aria-hidden','true');
+      nextBtn.setAttribute('aria-hidden','true');
+    }
   }
 
   function prevSlide(){
